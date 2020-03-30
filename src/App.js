@@ -8,7 +8,7 @@ class App extends Component {
     super();
     this.state = {
       baseURL: 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url=',
-      watchURL: 'https://www.youtube.com/watch?v=4NOXxkGpDME'
+      watchURL: 'https://www.youtube.com/watch?v=gPTGR4FYCMA&list=PLOFF70X5RBfBBBNM-vODkYHjf2wXqLm46'
     }
   }
 
@@ -20,10 +20,5 @@ class App extends Component {
     );
   }
 }
-
-
-
-
-
 
 export default App;
