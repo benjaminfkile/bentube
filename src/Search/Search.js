@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Results from '../MediaPlayer/MediaPlayer'
+import MediaPlayer from '../MediaPlayer/MediaPlayer'
+import DummyStore from './DummyStore'
 
 
 class Search extends Component {
@@ -15,7 +16,7 @@ class Search extends Component {
 
 
     componentDidMount() {
-        this.getVideos('sweet but psycho')
+        this.getVideos('saxobeat')
     }
 
 
@@ -26,36 +27,38 @@ class Search extends Component {
     }
 
 
-    getVideos(query, maxResults = 50) {
-        const params = {
-            key: this.state.apiKey,
-            q: query,
-            part: 'snippet',
-            maxResults
-        };
-        const queryString = this.formatQueryParams(params)
-        const url = this.state.searchURL + '?' + queryString;
+     getVideos(query, maxResults = 10) {
+        // const params = {
+        //     key: this.state.apiKey,
+        //     q: query,
+        //     part: 'snippet',
+        //     maxResults
+        // };
+        // const queryString = this.formatQueryParams(params)
+        // const url = this.state.searchURL + '?' + queryString;
 
-        fetch(url)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error(response.statusText);
-            })
-            .then(responseJson => this.setState({ response: responseJson }))
-            .catch(err => {
-                console.log(err.message)
-            });
+        // fetch(url)
+        //     .then(response => {
+        //         if (response.ok) {
+        //             return response.json();
+        //         }
+        //         throw new Error(response.statusText);
+        //     })
+        //     .then(responseJson => this.setState({ response: responseJson }))
+        //     .catch(err => {
+        //         console.log(err.message)
+        //     });
     }
 
     render() {
 
+        
         return (
             <div className="Search">
 
-                <Results
-                    response={this.state.response}
+                <MediaPlayer
+                    // response={this.state.response}
+                    response={DummyStore}
                 />
             </div>
         )

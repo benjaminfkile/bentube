@@ -1,5 +1,5 @@
 audio{
-    display: none;
+    /* display: none; */
 }
 li{
     list-style: none;
@@ -11,4 +11,8 @@ li{
 }
 .Controls li{
     margin-right: 20px;
+}
+.Results{
+    margin-left: 10px;
+    margin-right: 10px;
 }
