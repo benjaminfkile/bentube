@@ -13,7 +13,7 @@ class Search extends Component {
             baseURL: 'https://www.youtube.com/watch?v=',
             response: null,
             value: '',
-            maxResults: 8,
+            maxResults: 50,
             requests: 0,
             error: false
         }
@@ -22,9 +22,9 @@ class Search extends Component {
     }
 
 
-    // componentDidMount() {
-    //     this.getVideos('cat', 10)
-    // }
+    componentDidMount() {
+        this.getVideos('new music', 50)
+    }
 
     handleSubmit = () => {
         this.getVideos(this.state.value + "lyrics", this.state.maxResults)
@@ -88,8 +88,8 @@ class Search extends Component {
 
                 {!this.state.error &&
                     <MediaPlayer key={Math.random()}
-                        // response={this.state.response}
-                        response={DummyStore}
+                        response={this.state.response}
+                        // response={DummyStore}
                     />}
             </div>
         )
