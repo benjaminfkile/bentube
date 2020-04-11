@@ -1,18 +1,48 @@
 audio{
-    /* display: none; */
+    display: none;
 }
 li{
     list-style: none;
     text-align: left;
     margin-bottom: 15px;
 }
+.Controls{
+    background-color:rgb(13,35,56);   
+    color: silver;
+    margin: 5px;
+}
+.Controls h1{
+    font-size: 20px;
+    padding: 10px;
+}
 .Controls ul{
     display: flex;
+    margin-left: 35%;
 }
 .Controls li{
-    margin-right: 20px;
+    padding-left:  10px;
+    padding-right: 10px;
+
 }
-.Results{
-    margin-left: 10px;
-    margin-right: 10px;
+.Controls p{
+    font-size: 15px;
+    padding: 10px;
+}
+
+.Item{
+    display: flex;
+    margin: 5px;
+    background-color:rgb(13,35,56);    
+    color: silver;
+    cursor: pointer;
+}
+.Item:hover .Item:focus .Item:active{
+    border-style: solid;
+    border-color: silver;
+}
+.Item li{
+    padding-left: 10px;
+}
+.Item p{
+    padding-left: 10px;
 }

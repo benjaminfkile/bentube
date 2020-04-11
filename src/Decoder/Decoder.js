@@ -10,10 +10,6 @@ class Decoder extends Component {
     }
   }
 
-
-
-
-
   render() {
 
     return (

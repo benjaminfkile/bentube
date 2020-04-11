@@ -1,0 +1,24 @@
+.Search{
+    height: 25px;
+    /* background-color:rgb(9,24,38);     */
+    color: silver;
+}
+.Search form{
+    display: flex;
+}
+.Search input{
+    padding: 2px;
+    margin: 5px;
+    background-color: rgb(14,14,27);
+    color: silver;
+    width: 75vw;
+}
+.Search li{
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 20px;
+}
+.Search_Form li{
+    margin-top: 5px;
+    margin-left: 20px;
+}
