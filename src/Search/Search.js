@@ -89,7 +89,6 @@ class Search extends Component {
                 {!this.state.error &&
                     <MediaPlayer key={Math.random()}
                         response={this.state.response}
-                        // response={DummyStore}
                     />}
             </div>
         )
