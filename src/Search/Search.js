@@ -23,11 +23,12 @@ class Search extends Component {
 
 
     componentDidMount() {
-        this.getVideos('new music', 50)
+        // this.getVideos('new music', 50)
+        this.setState({response: DummyStore})
     }
 
     handleSubmit = () => {
-        this.getVideos(this.state.value + "lyrics", this.state.maxResults)
+        this.getVideos(this.state.value, this.state.maxResults)
     }
 
     handleChange = (event) => {
@@ -71,13 +72,12 @@ class Search extends Component {
 
     render() {
 
-
         return (
             <div className="Search">
 
                 <form className="Search_Form">
                     <input type="text" value={this.state.value} onChange={this.handleChange} />
-                    <li onClick={() => this.handleSubmit()}>&gt;&gt;&gt;</li>
+                    <li onClick={() => this.handleSubmit()}>=&gt;</li>
                 </form>
                 {this.state.error &&
                     <div className="Error">

@@ -1,17 +1,26 @@
+li{
+    list-style: none;
+}
 .Search{
-    height: 25px;
-    /* background-color:rgb(9,24,38);     */
+    height: 5vh;
     color: silver;
 }
 .Search form{
     display: flex;
+    height: 5vh;
 }
 .Search input{
+    background-color:rgb(13,35,56);   
     padding: 2px;
-    margin: 5px;
-    background-color: rgb(14,14,27);
+    padding-left: 10px;
+    margin-top: 2.5px;
+    margin-left: 5px;
+    font-size: 20px;
     color: silver;
-    width: 75vw;
+    border-style: none;
+    border-radius: 10%;
+    width: 85vw;
+    
 }
 .Search li{
     padding-left: 5px;
@@ -19,6 +28,6 @@
     font-size: 20px;
 }
 .Search_Form li{
-    margin-top: 5px;
-    margin-left: 20px;
+    margin-top: 0vh;
+    margin-left: 5px;
 }

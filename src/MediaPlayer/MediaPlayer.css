@@ -1,15 +1,25 @@
 audio{
     display: none;
 }
+.Results{
+    position: fixed;
+    width: 100vw;
+}
 li{
     list-style: none;
     text-align: left;
     margin-bottom: 15px;
 }
 .Controls{
+    height: 25vh;
     background-color:rgb(13,35,56);   
     color: silver;
-    margin: 5px;
+    border-style: none;
+    border-radius: 2%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .Controls h1{
     font-size: 20px;
@@ -20,13 +30,21 @@ li{
     margin-left: 35%;
 }
 .Controls li{
+    margin-bottom: 0px;
     padding-left:  10px;
     padding-right: 10px;
-
+    font-size: 25px;
 }
 .Controls p{
     font-size: 15px;
     padding: 10px;
+}
+.List{
+    position: absolute;
+    /* height: calc(80vh); */
+    height: 70vh;
+    width: 100%;
+    overflow-y: auto;
 }
 
 .Item{
@@ -34,13 +52,20 @@ li{
     margin: 5px;
     background-color:rgb(13,35,56);    
     color: silver;
+    border-style: none;
+    border-radius: 2%;
     cursor: pointer;
+}
+.Item img{
+    margin-left: 5px;
+    margin-top: 5px;
 }
 .Item:hover .Item:focus .Item:active{
     border-style: solid;
     border-color: silver;
 }
 .Item li{
+    margin-top: 5px;
     padding-left: 10px;
 }
 .Item p{
