@@ -9,7 +9,7 @@ li{
     display: flex;
     height: 5vh;
 }
-.Search input{
+.Search textarea{
     background-color:rgb(18,28,37);   
     padding: 2px;
     padding-left: 10px;
@@ -20,12 +20,14 @@ li{
     border-style: none;
     border-radius: 10%;
     width: 85vw;
+    resize: none;
+    outline: none;
     
 }
 .Search li{
     padding-left: 5px;
     padding-top: 5px;
-    font-size: 20px;
+    font-size: 15px;
 }
 .Search_Form li{
     margin-top: 0vh;
@@ -34,11 +36,11 @@ li{
 @media screen and (max-height: 550px) {
 
     .Search{
-        height: 15vh !important; 
+        height: 10vh !important; 
 
     }
     .Search_Form{
-        height: 15vh !important; 
+        height: 10vh !important; 
         margin-bottom: 5px;
 
     }

@@ -11,7 +11,7 @@ li{
     margin-bottom: 15px;
 }
 .Controls{
-    height: 25vh;
+    height: 20vh;
     background-color:rgb(18,28,37);   
     color: silver;
     border-style: none;
@@ -22,30 +22,50 @@ li{
     margin-right: 5px;
 }
 .Controls h1{
-    font-size: 15px;
+    font-size: 17px;
     padding: 10px;
 }
-.Controls ul{
-    display: flex;
-    margin-left: 35%;
-}
+
 .Controls li{
     margin-bottom: 0px;
     padding-left:  10px;
-    padding-right: 10px;
+    padding-right: 35px;
     font-size: 15px;
 }
 .Controls p{
     font-size: 15px;
     padding: 10px;
 }
-.Divider{
-    background-color: black;
-    height: 1vh;
+.Buttons{
+    display: flex;
+    width: 100%;
+}
+.Buttons ul{
+    display: flex;
+    margin-left: 30vw;
+}
+.Buttons li{
+    font-weight: 900;
+}
+.Controls section{
+    display: flex;
+}
+.Controls img{
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+
+.Divider1{
+    background-color: rgb(0, 0, 0);
+}
+.Divider1{
+    background-color: rgb(0, 0, 0);
+    height: .8vh;
 }
 .List{
     position: absolute;
-    height: calc(69vh);
+    height: calc(74vh);
     /* height: 70vh; */
     width: 100%;
     overflow-y: auto;
@@ -64,10 +84,10 @@ li{
     margin-left: 5px;
     margin-top: 5px;
 }
-.Item:hover .Item:focus .Item:active{
+/* .Item:hover .Item:focus .Item:active{
     border-style: solid;
     border-color: silver;
-}
+} */
 .Item li{
     margin-top: 5px;
     padding-left: 10px;
@@ -77,7 +97,12 @@ li{
 }
 @media screen and (max-height: 550px) {
     .Controls {
-        display: none;
+        height: calc(60vh);
+    }
+
+    .Controls h1{
+        font-size: 25px !important;
+
     }
 
     .Search{
@@ -86,17 +111,19 @@ li{
     }
     .Search_Form{
         height: 15vh !important; 
+        margin-top: 5px;
         margin-bottom: 5px;
 
     }
     .Search_Form li{
-        margin-top: 3vh !important;
+        display: none;
     }
-    .Divider{
+    .Divider2{
         display: none;
     }
     .List{
-        height: calc(85vh);
+        display: none;
+
     }
 
 

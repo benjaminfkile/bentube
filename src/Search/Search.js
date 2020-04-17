@@ -16,23 +16,22 @@ class Search extends Component {
             requests: 0,
             error: false
         }
-        this.handleChange = this.handleChange.bind(this)
-
+        this.keyPress = this.keyPress.bind(this);
     }
-
-
     componentDidMount() {
         // this.getVideos('new music', 50)
-        this.setState({response: DummyStore})
+        this.setState({ response: DummyStore })
     }
 
     handleSubmit = () => {
-        this.getVideos(this.state.value, this.state.maxResults)
+        this.getVideos(document.getElementById("text").value, this.state.maxResults)
+        document.getElementById("text").value = ""
     }
 
-    handleChange = (event) => {
-        event.preventDefault()
-        this.setState({ value: event.target.value })
+    keyPress = (e) => {
+        if (e.keyCode === 13) {
+            this.handleSubmit()
+        }
     }
 
     formatQueryParams = (params) => {
@@ -75,7 +74,7 @@ class Search extends Component {
             <div className="Search">
 
                 <form className="Search_Form">
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    <textarea id="text" type="text" onKeyDown={this.keyPress} />
                     <li onClick={() => this.handleSubmit()}>=&gt;</li>
                 </form>
                 {this.state.error &&
