@@ -12,7 +12,7 @@ li{
 }
 .Controls{
     height: 20vh;
-    background-color:rgb(25,34,47);   
+    background-color:rgb(27,27,27);   
     color: silver;
     border-style: none;
     border-radius: 2%;
@@ -29,7 +29,7 @@ li{
 .Controls li{
     margin-bottom: 0px;
     padding-left:  10px;
-    padding-right: 35px;
+    padding-right: 20px;
     font-size: 15px;
 }
 .Controls p{
@@ -42,7 +42,7 @@ li{
 }
 .Buttons ul{
     display: flex;
-    margin-left: 30vw;
+    margin-left: 60vw;
 }
 .Buttons li{
     font-weight: 900;
@@ -75,7 +75,7 @@ li{
 .Item{
     display: flex;
     margin: 5px;
-    background-color:rgb(18,28,37);    
+    background-color:rgb(41,41,41);    
     color: silver;
     border-style: none;
     border-radius: 2%;
