@@ -46,6 +46,7 @@ li{
 }
 .Buttons li{
     font-weight: 900;
+    font-size: 30px;
 }
 .Controls section{
     display: flex;
