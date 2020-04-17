@@ -26,7 +26,7 @@ class MediaPlayer extends Component {
 
     decoderNext = () => {
         this.next(this.state.queu[this.state.idx])
-        this.setState({trackProgress: -3})
+        this.setState({ trackProgress: -3 })
     }
 
     decoderProgress = (duration, progress) => {
@@ -35,7 +35,7 @@ class MediaPlayer extends Component {
 
 
     playTrack = (args) => {
-        this.setState({trackProgress: -3})
+        this.setState({ trackProgress: -3 })
         if (args) {
             this.setState(
                 {
@@ -62,7 +62,7 @@ class MediaPlayer extends Component {
     }
 
     pause = () => {
-        this.setState({trackProgress: -3})
+        this.setState({ trackProgress: -3 })
 
         var audio = document.getElementById("audio");
         this.setState({ pause: false })
@@ -70,7 +70,7 @@ class MediaPlayer extends Component {
     }
 
     next = (args) => {
-        this.setState({trackProgress: -3})
+        this.setState({ trackProgress: -3 })
         if (args.idx < this.state.queu.length - 1) {
             this.setState(
                 {
@@ -88,7 +88,7 @@ class MediaPlayer extends Component {
     }
 
     previous = (args) => {
-        this.setState({trackProgress: -3})
+        this.setState({ trackProgress: -3 })
 
         if (args.idx > 0) {
             this.setState(
@@ -181,6 +181,7 @@ class MediaPlayer extends Component {
                             </li>
                     </ul>
                 </div>}
+                <div className="Divider"></div>
                 {this.state.queu && <div className="List">
                     <ul>
                         {this.state.queu.map(videos =>

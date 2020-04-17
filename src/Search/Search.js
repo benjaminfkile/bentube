@@ -3,7 +3,6 @@ import MediaPlayer from '../MediaPlayer/MediaPlayer'
 import '../Search/Search.css'
 import DummyStore from './DummyStore'
 
-
 class Search extends Component {
     constructor() {
         super();
