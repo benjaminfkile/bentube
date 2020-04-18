@@ -12,7 +12,7 @@ class MediaPlayer extends Component {
             waiting4DB: true,
             idx: 0,
             interval1: 1000,
-            pause: false,
+            pause: true,
             trackDuration: null,
             trackProgress: -2,
             shuffle: false,
@@ -185,7 +185,7 @@ class MediaPlayer extends Component {
                         {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
 
                     </div>
-                    {this.state.pause && <div id="bars">
+                    {/* {this.state.pause && <div id="bars">
                         <div className="bar"></div>
                         <div className="bar"></div>
                         <div className="bar"></div>
@@ -196,7 +196,17 @@ class MediaPlayer extends Component {
                         <div className="bar"></div>
                         <div className="bar"></div>
                         <div className="bar"></div>
-                    </div>}
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                    </div>} */}
                 </div>}
                 <div className="Divider2"></div>
                 {this.state.queu && <div className="List">
