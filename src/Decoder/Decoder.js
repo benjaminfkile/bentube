@@ -5,18 +5,12 @@ class Decoder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      serverURL: 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url=',
       // serverURL: 'http://localhost:8000/downloadmp3?url=',
+      serverURL: 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url=',
       interval: 1000,
       duration: null,
       progress: 0
     }
-  }
-
-  componentDidMount() {
-    // setInterval(() => {
-    //   this.listenForAudio()
-    // }, this.state.interval);
   }
 
   nextCallback = () => {

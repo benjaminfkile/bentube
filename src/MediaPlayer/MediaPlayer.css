@@ -74,6 +74,7 @@ li{
     left: 84vw;
     width: 40px;
     height: 40px;
+    z-index: 100;
 }
 
 
@@ -119,55 +120,55 @@ li{
     padding-left: 10px;
 }
 
-/* #bars {
+#bars {
     height: 30px;
-    left: 30px;
+    left: 0px;
     margin: -30px 0 0 -20px;
     position: absolute;
-    top: 100;
+    top: 21vh;
     width: 50%;
 }
 
 .bar {
-   background: rgb(90,56,56);
+   background: rgb(44, 43, 43);
     bottom: 1px;
     height: 3px;
     position: absolute;
-    width: 3px;      
-    animation: sound 0ms -800ms linear infinite alternate;
+    width: 4vw;      
+    animation: sound 0ms 1ms linear infinite alternate;
 }
 
 @keyframes sound {
     0% {
        opacity: .35;
-        height: 3px; 
+        height: 0vh; 
     }
     100% {
-        opacity: .5;       
-        height: 20vh;        
+        opacity: .85;       
+        height: 2vh;        
     }
 }
 
-.bar:nth-child(1)  { left: 1px; animation-duration: 474ms; }
-.bar:nth-child(2)  { left: 30px; animation-duration: 433ms; }
-.bar:nth-child(3)  { left: 9px; animation-duration: 407ms; }
-.bar:nth-child(4)  { left: 13px; animation-duration: 458ms; }
-.bar:nth-child(5)  { left: 17px; animation-duration: 400ms; }
-.bar:nth-child(6)  { left: 21px; animation-duration: 427ms; }
-.bar:nth-child(7)  { left: 25px; animation-duration: 441ms; }
-.bar:nth-child(8)  { left: 29px; animation-duration: 419ms; }
-.bar:nth-child(9)  { left: 33px; animation-duration: 487ms; }
-.bar:nth-child(10) { left: 37px; animation-duration: 442ms; }
-.bar:nth-child(11) { left: 41px; animation-duration: 407ms; }
-.bar:nth-child(12) { left: 46px; animation-duration: 427ms; }
-.bar:nth-child(13) { left: 51px; animation-duration: 433ms; }
-.bar:nth-child(14) { left: 56px; animation-duration: 407ms; }
-.bar:nth-child(15) { left: 60px; animation-duration: 474ms; }
-.bar:nth-child(16) { left: 64px; animation-duration: 419ms; }
-.bar:nth-child(17) { left: 68px; animation-duration: 407ms; }
-.bar:nth-child(18) { left: 52px; animation-duration: 458ms; }
-.bar:nth-child(19) { left: 45px; animation-duration: 427ms; }
-.bar:nth-child(20) { left: 49px; animation-duration: 407ms; } */
+.bar:nth-child(1)  { left: 5vw; animation-duration: 474ms; }
+.bar:nth-child(2)  { left: 10vw; animation-duration: 433ms; }
+.bar:nth-child(3)  { left: 15vw; animation-duration: 407ms; }
+.bar:nth-child(4)  { left: 20vw; animation-duration: 458ms; }
+.bar:nth-child(5)  { left: 25vw; animation-duration: 400ms; }
+.bar:nth-child(6)  { left: 30vw; animation-duration: 427ms; }
+.bar:nth-child(7)  { left: 35vw; animation-duration: 441ms; }
+.bar:nth-child(8)  { left: 40vw; animation-duration: 419ms; }
+.bar:nth-child(9)  { left: 45vw; animation-duration: 487ms; }
+.bar:nth-child(10) { left: 50vw; animation-duration: 442ms; }
+.bar:nth-child(11) { left: 55vw; animation-duration: 407ms; }
+.bar:nth-child(12) { left: 60vw; animation-duration: 427ms; }
+.bar:nth-child(13) { left: 65vw; animation-duration: 433ms; }
+.bar:nth-child(14) { left: 70vw; animation-duration: 407ms; }
+.bar:nth-child(15) { left: 75vw; animation-duration: 474ms; }
+.bar:nth-child(16) { left: 80vw; animation-duration: 419ms; }
+.bar:nth-child(17) { left: 85vw; animation-duration: 407ms; }
+.bar:nth-child(18) { left: 90vw; animation-duration: 458ms; }
+.bar:nth-child(19) { left: 95vw; animation-duration: 427ms; }
+.bar:nth-child(20) { left: 100vw; animation-duration: 407ms; }
 
 @media screen and (max-height: 550px) {
     .Controls {
@@ -176,12 +177,10 @@ li{
 
     .Controls h1{
         font-size: 25px !important;
-
     }
 
     .Buttons{
         top: 45vh;
-
     }
 
     .Divider2{
