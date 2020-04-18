@@ -12,7 +12,7 @@ class MediaPlayer extends Component {
             waiting4DB: true,
             idx: 0,
             interval1: 1000,
-            pause: true,
+            pause: false,
             trackDuration: null,
             trackProgress: -2,
             shuffle: false,
