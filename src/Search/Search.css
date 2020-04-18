@@ -18,6 +18,7 @@ li{
     font-size: 20px;
     color: silver;
     border-style: solid;
+    border-color: rgb(90,56,56);
     border-radius: 5%;
     width: 85vw;
     resize: none;
@@ -30,11 +31,8 @@ li{
     padding-top: 5px;
 }
 #Go_Btn{
-    position: absolute;
-    top: 1vh;
-    left: 51vh;
-    width: 30px;
-    height: 30px;
+    width: 40x;
+    height: 40px;
 }
 .Search_Form li{
     margin-top: -5px;

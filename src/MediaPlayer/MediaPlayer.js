@@ -15,7 +15,7 @@ class MediaPlayer extends Component {
             pause: false,
             trackDuration: null,
             trackProgress: -2,
-            timer: 0
+            shuffle: false,
         }
     }
 
@@ -69,18 +69,26 @@ class MediaPlayer extends Component {
     }
 
     next = (args) => {
-        if (args.idx < this.state.queu.length - 1) {
+        if(!this.state.shuffle){
+            if (args.idx < this.state.queu.length - 1) {
+                this.setState(
+                    {
+                        idx: this.state.idx + 1,
+                        nowPlaying: this.state.queu[this.state.idx + 1].id
+                    })
+            } else {
+                this.setState(
+                    {
+                        idx: 0,
+                        nowPlaying: this.state.queu[0].id
+    
+                    })
+            }
+        }else{
             this.setState(
                 {
-                    idx: this.state.idx + 1,
-                    nowPlaying: this.state.queu[this.state.idx + 1].id
-                })
-        } else {
-            this.setState(
-                {
-                    idx: 0,
-                    nowPlaying: this.state.queu[0].id
-
+                    idx: Math.floor(Math.random()*this.state.queu.length),
+                    nowPlaying: this.state.queu[Math.floor(Math.random()*this.state.queu.length)].id
                 })
         }
     }
@@ -100,6 +108,15 @@ class MediaPlayer extends Component {
                     idx: this.state.queu.length - 1,
                     nowPlaying: this.state.queu[this.state.queu.length - 1].id
                 })
+        }
+    }
+
+    shuffle = () => {
+        if (!this.state.shuffle) {
+            this.setState({ shuffle: true })
+        }
+        else {
+            this.setState({ shuffle: false })
         }
     }
 
@@ -142,6 +159,8 @@ class MediaPlayer extends Component {
 
     render() {
 
+        console.log(this.state.shuffle)
+
         return (
             <div className="Results">
                 <div className="Divider1"></div>
@@ -162,11 +181,22 @@ class MediaPlayer extends Component {
                         {this.state.pause &&
                             <img id="Pause_Btn" src="./res/pause.png" alt="||" onClick={() => this.pause()}></img>}
                         <img id="Next_Btn" src="./res/next.png" alt="&gt;&gt;" onClick={() => this.next(this.state.queu[this.state.idx])}></img>
-                        {/* {this.state.trackDuration &&
-                            <p>
-                                {this.state.trackProgress + '/' + this.state.trackDuration}
-                            </p>} */}
+                        {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
+                        {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
+
                     </div>
+                    {this.state.pause && <div id="bars">
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                    </div>}
                 </div>}
                 <div className="Divider2"></div>
                 {this.state.queu && <div className="List">
