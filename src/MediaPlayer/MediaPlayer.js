@@ -166,7 +166,7 @@ class MediaPlayer extends Component {
                 <div className="Divider1"></div>
                 {this.state.queu && <div className="Controls">
                     <section>
-                        <img src={this.state.queu[this.state.idx].thumbnail} alt="oops"></img>
+                        <img src={this.state.queu[this.state.idx].thumbnail} alt="oops" height="85" width="115"></img>
                         <h1>
                             {this.state.queu[this.state.idx].title}
                         </h1>
