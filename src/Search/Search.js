@@ -75,7 +75,8 @@ class Search extends Component {
 
                 <form className="Search_Form">
                     <textarea id="text" type="text" onKeyDown={this.keyPress} />
-                    <li onClick={() => this.handleSubmit()}>=&gt;</li>
+                    {/* <li onClick={() => this.handleSubmit()}>=&gt;</li> */}
+                    <img id="Go_Btn" src="./res/go.png" alt="=&gt;"onClick={() => this.handleSubmit()}></img>
                 </form>
                 {this.state.error &&
                     <div className="Error">

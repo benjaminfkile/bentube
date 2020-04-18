@@ -156,20 +156,12 @@ class MediaPlayer extends Component {
                         </p> */}
                     </section>
                     <div className="Buttons">
-                        <ul>
-                            <li onClick={() => this.previous(this.state.queu[this.state.idx])}>
-                                &lt;&lt;
-                            </li>
-                            {!this.state.pause && <li onClick={() => this.playTrack()}>
-                                |>
-                            </li>}
-                            {this.state.pause && <li onClick={() => this.pause()}>
-                                ||
-                            </li>}
-                            <li onClick={() => this.next(this.state.queu[this.state.idx])}>
-                                &gt;&gt;
-                            </li>
-                        </ul>
+                        <img id="Prev_Btn" src="./res/prev.png" alt="=&lt;&lt;" onClick={() => this.previous(this.state.queu[this.state.idx])}></img>
+                        {!this.state.pause &&
+                            <img id="Play_Btn" src="./res/play.png" alt="&gt;" onClick={() => this.playTrack()}></img>}
+                        {this.state.pause &&
+                            <img id="Pause_Btn" src="./res/pause.png" alt="||" onClick={() => this.pause()}></img>}
+                        <img id="Next_Btn" src="./res/next.png" alt="&gt;&gt;" onClick={() => this.next(this.state.queu[this.state.idx])}></img>
                         {/* {this.state.trackDuration &&
                             <p>
                                 {this.state.trackProgress + '/' + this.state.trackDuration}

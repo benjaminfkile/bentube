@@ -10,25 +10,31 @@ li{
     height: 5vh;
 }
 .Search textarea{
-    background-color:rgb(27,27,27);   
-    /* padding: 2px; */
+    background-color:rgb(0,0,0);   
     padding-left: 10px;
     padding-top: 7px;
     margin-top: 7px;
     margin-left: 5px;
     font-size: 20px;
     color: silver;
-    border-style: none;
-    border-radius: 10%;
+    border-style: solid;
+    border-radius: 5%;
     width: 85vw;
     resize: none;
     outline: none;
+    overflow: hidden;
     
 }
 .Search li{
     padding-left: 5px;
     padding-top: 5px;
-    /* font-size: 15px; */
+}
+#Go_Btn{
+    position: absolute;
+    top: 1vh;
+    left: 51vh;
+    width: 30px;
+    height: 30px;
 }
 .Search_Form li{
     margin-top: -5px;
