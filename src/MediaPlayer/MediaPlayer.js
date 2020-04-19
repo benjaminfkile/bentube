@@ -29,7 +29,6 @@ class MediaPlayer extends Component {
 
     decoderDuration = (duration) => {
         if (duration) {
-            // console.log(new Date(duration * 1000).toISOString().substr(12, 7))
             this.setState({ duration: new Date(duration * 1000).toISOString().substr(12, 7) })
 
 
@@ -37,7 +36,6 @@ class MediaPlayer extends Component {
     }
     decoderProgres = (progress) => {
         if (progress) {
-            // console.log(new Date(progress * 1000).toISOString().substr(12, 7))
             this.setState({ progress: new Date(progress * 1000).toISOString().substr(12, 7) })
         }
     }
@@ -58,7 +56,6 @@ class MediaPlayer extends Component {
         } else {
 
             if (this.state.nowPlaying) {
-                var audio = document.getElementById("audio");
                 this.setState({ pause: true })
                 audio.play()
             }
@@ -143,7 +140,6 @@ class MediaPlayer extends Component {
         this.buildQueu()
     }
 
-
     buildQueu = () => {
         let temp = []
         let idx = -1;
@@ -178,9 +174,6 @@ class MediaPlayer extends Component {
                         <h1>
                             {this.state.queu[this.state.idx].title}
                         </h1>
-                        {/* <p>
-                            {this.state.queu[this.state.idx].description}
-                        </p> */}
                     </section>
                     <div className="Buttons">
                         <img id="Prev_Btn" src="./res/prev.png" alt="=&lt;&lt;" onClick={() => this.previous(this.state.queu[this.state.idx])}></img>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MediaPlayer from '../MediaPlayer/MediaPlayer'
 import '../Search/Search.css'
-import DummyStore from './DummyStore'
+// import DummyStore from './DummyStore'
 
 class Search extends Component {
     constructor() {
@@ -19,16 +19,24 @@ class Search extends Component {
         this.keyPress = this.keyPress.bind(this);
     }
     componentDidMount() {
-        // this.getVideos('new music', 50)
-        this.setState({ response: DummyStore })
+        this.getVideos('top music', 50)
+        // this.setState({ response: DummyStore })
     }
 
     handleSubmit = () => {
-        this.getVideos(document.getElementById("text").value, this.state.maxResults)
-        document.getElementById("text").value = ""
+        let value = document.getElementById("text").value
+        if (value !== "Search for Music, News, Lyrics...") {
+            this.getVideos(value, this.state.maxResults)
+            document.getElementById("text").value = ""
+        }
+
     }
 
     keyPress = (e) => {
+        let value = document.getElementById("text").value
+        if (value === "Search for Music, News, Lyrics...") {
+            document.getElementById("text").value = ""
+        }
         if (e.keyCode === 13) {
             this.handleSubmit()
         }
@@ -44,7 +52,6 @@ class Search extends Component {
     getVideos = (query, maxResults) => {
         this.setState({ requests: this.state.requests + 1 })
         this.setState({ error: false })
-        console.log(this.state.requests)
         const params = {
             key: this.state.apiKey,
             q: query,
@@ -72,11 +79,9 @@ class Search extends Component {
 
         return (
             <div className="Search">
-
                 <form className="Search_Form">
-                    <textarea id="text" type="text" onKeyDown={this.keyPress} />
-                    {/* <li onClick={() => this.handleSubmit()}>=&gt;</li> */}
-                    <img id="Go_Btn" src="./res/go.png" alt="=&gt;"onClick={() => this.handleSubmit()}></img>
+                    <textarea id="text" type="text" onKeyDown={this.keyPress}/>
+                    <img id="Go_Btn" src="./res/go.png" alt="=&gt;" onClick={() => this.handleSubmit()}></img>
                 </form>
                 {this.state.error &&
                     <div className="Error">
@@ -92,7 +97,6 @@ class Search extends Component {
             </div>
         )
     }
-
 }
 
 export default Search
