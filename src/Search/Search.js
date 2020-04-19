@@ -19,8 +19,8 @@ class Search extends Component {
         this.keyPress = this.keyPress.bind(this);
     }
     componentDidMount() {
-        this.getVideos('new music', 50)
-        // this.setState({ response: DummyStore })
+        // this.getVideos('new music', 50)
+        this.setState({ response: DummyStore })
     }
 
     handleSubmit = () => {

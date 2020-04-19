@@ -26,14 +26,14 @@ class MediaPlayer extends Component {
         this.next(this.state.queu[this.state.idx])
     }
 
-    decoderDuration = (duration) => {
-        this.setState({ trackDuration: duration })
-        console.log(duration)
-    }
-    decoderProgres = (progress) => {
-        this.setState({ trackProgress: progress })
-        console.log(progress)
-    }
+    // decoderDuration = (duration) => {
+    //     this.setState({ trackDuration: duration })
+    //     console.log(duration)
+    // }
+    // decoderProgres = (progress) => {
+    //     this.setState({ trackProgress: progress })
+    //     console.log(progress)
+    // }
 
     playTrack = (args) => {
         this.setState({ pause: true })
@@ -69,7 +69,7 @@ class MediaPlayer extends Component {
     }
 
     next = (args) => {
-        if(!this.state.shuffle){
+        if (!this.state.shuffle) {
             if (args.idx < this.state.queu.length - 1) {
                 this.setState(
                     {
@@ -81,11 +81,11 @@ class MediaPlayer extends Component {
                     {
                         idx: 0,
                         nowPlaying: this.state.queu[0].id
-    
+
                     })
             }
-        }else{
-            let random = Math.floor(Math.random()*this.state.queu.length)
+        } else {
+            let random = Math.floor(Math.random() * this.state.queu.length)
             this.setState(
                 {
                     idx: random,
@@ -124,6 +124,7 @@ class MediaPlayer extends Component {
     listen4DB = () => {
         if (this.props.response) {
             this.setState({ waiting4DB: false })
+
             this.stopListening4DB()
         }
     }
@@ -160,7 +161,7 @@ class MediaPlayer extends Component {
 
     render() {
 
-        console.log(this.state.shuffle)
+        console.log(this.state.nowPlaying)
 
         return (
             <div className="Results">
@@ -171,19 +172,20 @@ class MediaPlayer extends Component {
                         <h1>
                             {this.state.queu[this.state.idx].title}
                         </h1>
-                        {/* <p>
-                            {this.state.queu[this.state.idx].description}
-                        </p> */}
                     </section>
                     <div className="Buttons">
                         <img id="Prev_Btn" src="./res/prev.png" alt="=&lt;&lt;" onClick={() => this.previous(this.state.queu[this.state.idx])}></img>
                         {!this.state.pause &&
                             <img id="Play_Btn" src="./res/play.png" alt="&gt;" onClick={() => this.playTrack()}></img>}
-                        {this.state.pause &&
-                            <img id="Pause_Btn" src="./res/pause.png" alt="||" onClick={() => this.pause()}></img>}
+                        {/* {this.state.pause &&
+                            <img id="Pause_Btn" src="./res/pause.png" alt="||" onClick={() => this.pause()}></img>}  */}
+                        {this.state.nowPlaying && <Decoder
+                            videoId={this.state.nowPlaying}
+                            next={this.decoderNext}
+                        />}
                         <img id="Next_Btn" src="./res/next.png" alt="&gt;&gt;" onClick={() => this.next(this.state.queu[this.state.idx])}></img>
-                        {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
-                        {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
+                        {/* {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
+                        {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>} */}
 
                     </div>
                     {this.state.pause && <div id="bars">
@@ -224,12 +226,12 @@ class MediaPlayer extends Component {
                             </div>)}
                     </ul>
                 </div>}
-                <Decoder
+                {/* <Decoder
                     videoId={this.state.nowPlaying}
                     next={this.decoderNext}
                     duration={this.decoderDuration}
                     progress={this.decoderProgres}
-                />
+                /> */}
             </div>
         )
     }

@@ -1,5 +1,12 @@
 audio{
-    display: none;
+    /* display: none; */
+    filter: 
+    sepia(100%)
+    saturate(100%) 
+    grayscale(1)
+    contrast(99%)
+    invert(100%);
+    z-index: 1000;
 }
 .Results{
     position: fixed;
