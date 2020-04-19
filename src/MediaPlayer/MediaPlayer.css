@@ -26,7 +26,7 @@ li{
     margin-right: 5px;
 }
 .Controls h1{
-    font-size: 3vh;
+    font-size: 4vw;
     padding: 10px;
 }
 
@@ -79,16 +79,10 @@ li{
 }
 
 
-.Divider1{
-    background-color: rgb(0, 0, 0);
-}
-.Divider1{
-    background-color: rgb(0, 0, 0);
-    height: .8vh;
-}
+
 .List{
     position: absolute;
-    height: calc(74vh);
+    height: calc(75vh);
     /* height: 70vh; */
     width: 100%;
     overflow-y: auto;
@@ -121,55 +115,7 @@ li{
     padding-left: 10px;
 }
 
-#bars {
-    height: 30px;
-    left: 0px;
-    margin: -30px 0 0 -20px;
-    position: absolute;
-    top: 21vh;
-    width: 50%;
-}
-
-.bar {
-   background: rgb(44, 43, 43);
-    bottom: 1px;
-    height: 3px;
-    position: absolute;
-    width: 4vw;      
-    animation: sound 0ms 1ms linear infinite alternate;
-}
-
-@keyframes sound {
-    0% {
-       opacity: .35;
-        height: 0vh; 
-    }
-    100% {
-        opacity: .85;       
-        height: 1vh;        
-    }
-}
-
-.bar:nth-child(1)  { left: 5vw; animation-duration: 474ms; }
-.bar:nth-child(2)  { left: 10vw; animation-duration: 433ms; }
-.bar:nth-child(3)  { left: 15vw; animation-duration: 407ms; }
-.bar:nth-child(4)  { left: 20vw; animation-duration: 458ms; }
-.bar:nth-child(5)  { left: 25vw; animation-duration: 400ms; }
-.bar:nth-child(6)  { left: 30vw; animation-duration: 427ms; }
-.bar:nth-child(7)  { left: 35vw; animation-duration: 441ms; }
-.bar:nth-child(8)  { left: 40vw; animation-duration: 419ms; }
-.bar:nth-child(9)  { left: 45vw; animation-duration: 487ms; }
-.bar:nth-child(10) { left: 50vw; animation-duration: 442ms; }
-.bar:nth-child(11) { left: 55vw; animation-duration: 407ms; }
-.bar:nth-child(12) { left: 60vw; animation-duration: 427ms; }
-.bar:nth-child(13) { left: 65vw; animation-duration: 433ms; }
-.bar:nth-child(14) { left: 70vw; animation-duration: 407ms; }
-.bar:nth-child(15) { left: 75vw; animation-duration: 474ms; }
-.bar:nth-child(16) { left: 80vw; animation-duration: 419ms; }
-.bar:nth-child(17) { left: 85vw; animation-duration: 407ms; }
-.bar:nth-child(18) { left: 90vw; animation-duration: 458ms; }
-.bar:nth-child(19) { left: 95vw; animation-duration: 427ms; }
-.bar:nth-child(20) { left: 100vw; animation-duration: 407ms; }
+/***************************keyboard rules**********************/
 
 @media screen and (max-height: 550px) {
     .Controls {
@@ -183,14 +129,119 @@ li{
     .Buttons{
         top: 45vh;
     }
-
-    .Divider2{
+   .List{
         display: none;
+
+    }
+}
+
+@media screen and (min-width: 600px){
+
+    #Pause_Btn, #Play_Btn, #Next_Btn, #Prev_Btn{
+        width: 60px;
+        height: 60px;
+    }
+
+    #Shuffle_Btn, #No_Shuffle_Btn{
+        left: 88vw;
+        width: 60px;
+        height: 60px;
+
+    }
+
+    .Controls img{
+        height: 15vh;
+        width: 30vh;
+    }
+
+    .Controls h1{
+        font-size: 4vw;
+    }
+
+    .Buttons p{
+        font-size: 4vw;
+    }
+
+    .Item li{
+        font-size: 4vw;
+    }
+
+
+}
+
+@media screen and (min-width: 768px){
+
+    .Controls h1{
+        font-size: 3vw;
+    }
+    .Item li{
+        font-size: 3vw;
+    }
+
+}
+
+@media screen and (min-width: 768px){
+
+    #Pause_Btn, #Play_Btn, #Next_Btn, #Prev_Btn{
+        width: 80px;
+        height: 80px;
+    }
+
+    #Shuffle_Btn, #No_Shuffle_Btn{
+        left: 88vw;
+        width: 80px;
+        height: 80px;
+
+    }
+
+    .Controls img{
+        height: 15vh;
+        width: 30vh;
+    }
+
+    .Controls h1{
+        font-size: 4vw;
+    }
+    .Item li{
+        font-size: 4vw;
+    }
+
+}
+
+@media screen and (min-width: 1025px){
+    
+    .Controls{
+        height: 20vh;
+    }
+    .Controls img{
+        height: 13vh;
+        width: 10vw;
+    }
+
+    .Controls h1{
+        font-size: 1.8vw;
+    }
+
+    .Buttons{
+        top: 12vh;
+    }
+    .Buttons p{
+        font-size: 1.5vw;
+    }
+
+    #Pause_Btn, #Play_Btn, #Next_Btn, #Prev_Btn{
+        width: 80px;
+        height: 80px;
+    }
+
+    #Shuffle_Btn, #No_Shuffle_Btn{
+        left: 93vw;
+
     }
     .List{
-        display: none;
-
+        height: 75vh;
     }
-
-
+    .Item li{
+        font-size: 1.5vw;
+    }
 }

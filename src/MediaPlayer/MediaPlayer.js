@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Decoder from '../Decoder/Decoder';
+import Bars from './Bars'
 import '../MediaPlayer/MediaPlayer.css'
 
 class MediaPlayer extends Component {
@@ -27,7 +28,7 @@ class MediaPlayer extends Component {
     }
 
     decoderDuration = (duration) => {
-        if(duration){
+        if (duration) {
             // console.log(new Date(duration * 1000).toISOString().substr(12, 7))
             this.setState({ duration: new Date(duration * 1000).toISOString().substr(12, 7) })
 
@@ -35,14 +36,14 @@ class MediaPlayer extends Component {
         }
     }
     decoderProgres = (progress) => {
-        if(progress){
+        if (progress) {
             // console.log(new Date(progress * 1000).toISOString().substr(12, 7))
             this.setState({ progress: new Date(progress * 1000).toISOString().substr(12, 7) })
         }
     }
 
     playTrack = (args) => {
-        this.setState({pause: true})
+        this.setState({ pause: true })
         if (args) {
             this.setState(
                 {
@@ -71,11 +72,11 @@ class MediaPlayer extends Component {
     pause = () => {
         var audio = document.getElementById("audio");
         audio.pause()
-        this.setState({pause: false})
+        this.setState({ pause: false })
     }
 
     next = (args) => {
-        if(!this.state.shuffle){
+        if (!this.state.shuffle) {
             if (args.idx < this.state.queu.length - 1) {
                 this.setState(
                     {
@@ -87,11 +88,11 @@ class MediaPlayer extends Component {
                     {
                         idx: 0,
                         nowPlaying: this.state.queu[0].id
-    
+
                     })
             }
-        }else{
-            let random = Math.floor(Math.random()*this.state.queu.length)
+        } else {
+            let random = Math.floor(Math.random() * this.state.queu.length)
             this.setState(
                 {
                     idx: random,
@@ -187,30 +188,8 @@ class MediaPlayer extends Component {
                         {this.state.progress && this.state.duration && <p>{this.state.progress}/{this.state.duration}</p>}
                         {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                         {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
-
                     </div>
-                    {this.state.pause && <div id="bars">
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                    </div>}
+                    {this.state.pause && <Bars/>}
                 </div>}
                 {this.state.queu && <div className="List">
                     <ul>
