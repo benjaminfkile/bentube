@@ -169,16 +169,6 @@ li{
 
 }
 
-@media screen and (min-width: 768px){
-
-    .Controls h1{
-        font-size: 3vw;
-    }
-    .Item li{
-        font-size: 3vw;
-    }
-
-}
 
 @media screen and (min-width: 768px){
 

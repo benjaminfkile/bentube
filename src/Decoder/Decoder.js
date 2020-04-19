@@ -4,8 +4,8 @@ class Decoder extends Component {
 
   duration = 0;
   progress = 0;
-  serverURL = 'http://localhost:8000/downloadmp3?url='
-  // serverURL = 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url='
+  // serverURL = 'http://localhost:8000/downloadmp3?url='
+  serverURL = 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url='
 
   componentDidMount() {
     setInterval(this.listenForAudio, 1000)

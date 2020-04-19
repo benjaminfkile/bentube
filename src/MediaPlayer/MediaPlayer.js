@@ -44,6 +44,10 @@ class MediaPlayer extends Component {
 
     playTrack = (args) => {
         this.setState({ pause: true })
+        var audio = document.getElementById("audio");
+        if (audio) {
+            audio.pause()
+        }
         if (args) {
             this.setState(
                 {
@@ -189,7 +193,7 @@ class MediaPlayer extends Component {
                         {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                         {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                     </div>
-                    {this.state.pause && <Bars/>}
+                    {this.state.pause && <Bars />}
                 </div>}
                 {this.state.queu && <div className="List">
                     <ul>

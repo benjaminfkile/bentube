@@ -15,7 +15,7 @@ li{
     padding-top: 7px;
     margin-top: 7px;
     margin-left: 5px;
-    font-size: 20px;
+    font-size: 4vw;
     color: silver;
     border-style: solid;
     border-color: rgb(90,56,56);
@@ -82,6 +82,9 @@ li{
     }
     .Search{
         width: 50vw;
+    }
+    .Search textarea{
+        font-size: 1.5vw;
     }
 }
 
