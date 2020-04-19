@@ -1,12 +1,5 @@
 audio{
-    /* display: none; */
-    filter: 
-    sepia(100%)
-    saturate(100%) 
-    grayscale(1)
-    contrast(99%)
-    invert(100%);
-    z-index: 1000;
+    display: none;
 }
 .Results{
     position: fixed;
@@ -44,8 +37,9 @@ li{
     font-size: 15px;
 }
 .Controls p{
+    margin-top: 18px;
     font-size: 15px;
-    padding: 10px;
+
 }
 .Buttons{
     position: absolute;

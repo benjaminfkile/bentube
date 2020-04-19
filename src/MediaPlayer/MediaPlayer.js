@@ -13,8 +13,8 @@ class MediaPlayer extends Component {
             idx: 0,
             interval1: 1000,
             pause: false,
-            trackDuration: null,
-            trackProgress: -2,
+            duration: null,
+            progress: null,
             shuffle: false,
         }
     }
@@ -26,17 +26,23 @@ class MediaPlayer extends Component {
         this.next(this.state.queu[this.state.idx])
     }
 
-    // decoderDuration = (duration) => {
-    //     this.setState({ trackDuration: duration })
-    //     console.log(duration)
-    // }
-    // decoderProgres = (progress) => {
-    //     this.setState({ trackProgress: progress })
-    //     console.log(progress)
-    // }
+    decoderDuration = (duration) => {
+        if(duration){
+            // console.log(new Date(duration * 1000).toISOString().substr(12, 7))
+            this.setState({ duration: new Date(duration * 1000).toISOString().substr(12, 7) })
+
+
+        }
+    }
+    decoderProgres = (progress) => {
+        if(progress){
+            // console.log(new Date(progress * 1000).toISOString().substr(12, 7))
+            this.setState({ progress: new Date(progress * 1000).toISOString().substr(12, 7) })
+        }
+    }
 
     playTrack = (args) => {
-        this.setState({ pause: true })
+        this.setState({pause: true})
         if (args) {
             this.setState(
                 {
@@ -64,12 +70,12 @@ class MediaPlayer extends Component {
 
     pause = () => {
         var audio = document.getElementById("audio");
-        this.setState({ pause: false })
         audio.pause()
+        this.setState({pause: false})
     }
 
     next = (args) => {
-        if (!this.state.shuffle) {
+        if(!this.state.shuffle){
             if (args.idx < this.state.queu.length - 1) {
                 this.setState(
                     {
@@ -81,11 +87,11 @@ class MediaPlayer extends Component {
                     {
                         idx: 0,
                         nowPlaying: this.state.queu[0].id
-
+    
                     })
             }
-        } else {
-            let random = Math.floor(Math.random() * this.state.queu.length)
+        }else{
+            let random = Math.floor(Math.random()*this.state.queu.length)
             this.setState(
                 {
                     idx: random,
@@ -95,7 +101,6 @@ class MediaPlayer extends Component {
     }
 
     previous = (args) => {
-
         if (args.idx > 0) {
             this.setState(
                 {
@@ -124,7 +129,6 @@ class MediaPlayer extends Component {
     listen4DB = () => {
         if (this.props.response) {
             this.setState({ waiting4DB: false })
-
             this.stopListening4DB()
         }
     }
@@ -161,31 +165,28 @@ class MediaPlayer extends Component {
 
     render() {
 
-        console.log(this.state.nowPlaying)
-
         return (
             <div className="Results">
-                <div className="Divider1"></div>
                 {this.state.queu && <div className="Controls">
                     <section>
-                        <img src={this.state.queu[this.state.idx].thumbnail} alt="oops"></img>
+                        <img src={this.state.queu[this.state.idx].thumbnail} alt="oops" height="85" width="115"></img>
                         <h1>
                             {this.state.queu[this.state.idx].title}
                         </h1>
+                        {/* <p>
+                            {this.state.queu[this.state.idx].description}
+                        </p> */}
                     </section>
                     <div className="Buttons">
                         <img id="Prev_Btn" src="./res/prev.png" alt="=&lt;&lt;" onClick={() => this.previous(this.state.queu[this.state.idx])}></img>
                         {!this.state.pause &&
                             <img id="Play_Btn" src="./res/play.png" alt="&gt;" onClick={() => this.playTrack()}></img>}
-                        {/* {this.state.pause &&
-                            <img id="Pause_Btn" src="./res/pause.png" alt="||" onClick={() => this.pause()}></img>}  */}
-                        {this.state.nowPlaying && <Decoder
-                            videoId={this.state.nowPlaying}
-                            next={this.decoderNext}
-                        />}
+                        {this.state.pause &&
+                            <img id="Pause_Btn" src="./res/pause.png" alt="||" onClick={() => this.pause()}></img>}
                         <img id="Next_Btn" src="./res/next.png" alt="&gt;&gt;" onClick={() => this.next(this.state.queu[this.state.idx])}></img>
-                        {/* {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
-                        {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>} */}
+                        {this.state.progress && this.state.duration && <p>{this.state.progress}/{this.state.duration}</p>}
+                        {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
+                        {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
 
                     </div>
                     {this.state.pause && <div id="bars">
@@ -211,7 +212,6 @@ class MediaPlayer extends Component {
                         <div className="bar"></div>
                     </div>}
                 </div>}
-                <div className="Divider2"></div>
                 {this.state.queu && <div className="List">
                     <ul>
                         {this.state.queu.map(videos =>
@@ -226,12 +226,12 @@ class MediaPlayer extends Component {
                             </div>)}
                     </ul>
                 </div>}
-                {/* <Decoder
+                <Decoder
                     videoId={this.state.nowPlaying}
                     next={this.decoderNext}
                     duration={this.decoderDuration}
                     progress={this.decoderProgres}
-                /> */}
+                />
             </div>
         )
     }
