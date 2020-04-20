@@ -23,6 +23,7 @@ class MediaPlayer extends Component {
     componentDidMount() {
         this.listen4DB()
     }
+    
     decoderNext = () => {
         this.next(this.state.queu[this.state.idx])
     }
