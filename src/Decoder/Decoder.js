@@ -4,11 +4,16 @@ class Decoder extends Component {
 
   _duration = 0;
   _progress = 0;
-  // _serverURL = 'http://localhost:8000/downloadmp3?url='
-  _serverURL = 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url='
+  _interval
+  _serverURL = 'http://localhost:8000/downloadmp3?url='
+  // _serverURL = 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url='
 
   componentDidMount() {
-    setInterval(this.listenForAudio, 1000)
+    this._interval = setInterval(this.listenForAudio, 1000)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this._interval)
   }
 
   nextCallback = () => {

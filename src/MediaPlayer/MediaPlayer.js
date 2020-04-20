@@ -196,7 +196,8 @@ class MediaPlayer extends Component {
                                     <img src={videos.thumbnail} alt="Smiley face" height="90" width="120"></img>
                                 </div>
                                 <div className="Info">
-                                    <li>{videos.title}</li>
+                                    {/* <li>{videos.title}</li> */}
+                                    <li dangerouslySetInnerHTML={{__html: videos.title}}></li>
                                     <p>{videos.published}</p>
                                 </div>
                             </div>)}
