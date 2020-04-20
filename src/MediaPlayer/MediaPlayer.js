@@ -23,7 +23,7 @@ class MediaPlayer extends Component {
     componentDidMount() {
         this.listen4DB()
     }
-    
+
     decoderNext = () => {
         this.next(this.state.queu[this.state.idx])
     }
@@ -35,7 +35,7 @@ class MediaPlayer extends Component {
 
         }
     }
-    decoderProgres = (progress) => {
+    decoderProgress = (progress) => {
         if (progress) {
             this.setState({ progress: new Date(progress * 1000).toISOString().substr(12, 7) })
         }
@@ -172,9 +172,7 @@ class MediaPlayer extends Component {
                 {this.state.queu && <div className="Controls">
                     <section>
                         <img src={this.state.queu[this.state.idx].thumbnail} alt="oops" height="85" width="115"></img>
-                        <h1>
-                            {this.state.queu[this.state.idx].title}
-                        </h1>
+                        <h1 dangerouslySetInnerHTML={{__html: this.state.queu[this.state.idx].title}}></h1>
                     </section>
                     <div className="Buttons">
                         <img id="Prev_Btn" src="./res/prev.png" alt="=&lt;&lt;" onClick={() => this.previous(this.state.queu[this.state.idx])}></img>
@@ -208,7 +206,7 @@ class MediaPlayer extends Component {
                     videoId={this.state.nowPlaying}
                     next={this.decoderNext}
                     duration={this.decoderDuration}
-                    progress={this.decoderProgres}
+                    progress={this.decoderProgress}
                 />
             </div>
         )
