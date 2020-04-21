@@ -69,6 +69,10 @@ li{
     z-index: 100;
 }
 
+#Pause_Btn, #Play_Btn, #Next_Btn, #Prev_Btn, #Shuffle_Btn, #No_Shuffle_Btn{
+    cursor: pointer;
+}
+
 #Shuffle_Btn, #No_Shuffle_Btn{
     position: absolute;
     top: 0vh;
@@ -77,13 +81,9 @@ li{
     height: 40px;
     z-index: 100;
 }
-
-
-
 .List{
     position: absolute;
     height: calc(75vh);
-    /* height: 70vh; */
     width: 100%;
     overflow-y: auto;
 }
@@ -103,10 +103,6 @@ li{
     margin-left: 5px;
     margin-top: 5px;
 }
-/* .Item:hover .Item:focus .Item:active{
-    border-style: solid;
-    border-color: silver;
-} */
 .Item li{
     margin-top: 5px;
     padding-left: 10px;
@@ -165,8 +161,6 @@ li{
     .Item li{
         font-size: 4vw;
     }
-
-
 }
 
 
@@ -183,7 +177,6 @@ li{
         height: 80px;
 
     }
-
     .Controls img{
         height: 15vh;
         width: 30vh;
@@ -195,28 +188,50 @@ li{
     .Item li{
         font-size: 4vw;
     }
-
 }
 
 @media screen and (min-width: 1025px){
     
+    .Results{
+        display: flex;
+        z-index: 1000;
+    }
+
     .Controls{
-        height: 20vh;
+        position: absolute;
+        height: 90vh;
+        width: 55vw;
+        top: 0vh;
+        left: 0vw;
+        border: none;
+        background-color: rgb(21,21,21);
     }
     .Controls img{
-        height: 13vh;
-        width: 10vw;
+        margin-left: 3vw;
+        height: 70vh;
+        width: 60vw;
     }
 
     .Controls h1{
         font-size: 1.8vw;
+        margin-left: 4.5vw;
+        padding-right: 7vw;
+        text-align: left;
+    }
+
+    .Controls section{
+        display: unset;
     }
 
     .Buttons{
-        top: 12vh;
+        margin-left: 4vw;
+        top: 80vh;
+        left: -.5vw;
     }
     .Buttons p{
         font-size: 1.5vw;
+        margin-top: 3.5vh;
+        margin-left: 12vw;
     }
 
     #Pause_Btn, #Play_Btn, #Next_Btn, #Prev_Btn{
@@ -225,13 +240,25 @@ li{
     }
 
     #Shuffle_Btn, #No_Shuffle_Btn{
-        left: 93vw;
+        left: 56vw;
+        margin-left: -1vw;
 
     }
     .List{
-        height: 75vh;
+        height: 88vh;
+        width: 45vw;
+        position: absolute;
+        top: 0vh;
+        left: 65vw;
+    }
+    .Item{
+        width: 30vw;
     }
     .Item li{
-        font-size: 1.5vw;
+        font-size: 1vw;
+    }
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
     }
 }

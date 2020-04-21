@@ -78,6 +78,7 @@ class MediaPlayer extends Component {
     }
 
     next = (args) => {
+        this.setState({ pause: true })
         if (!this.state.shuffle) {
             if (args.idx < this.state.queu.length - 1) {
                 this.setState(
@@ -104,6 +105,7 @@ class MediaPlayer extends Component {
     }
 
     previous = (args) => {
+        this.setState({ pause: true })
         if (args.idx > 0) {
             this.setState(
                 {
@@ -154,7 +156,7 @@ class MediaPlayer extends Component {
                         {
                             title: this.props.response.items[i].snippet.title,
                             description: this.props.response.items[i].snippet.description,
-                            thumbnail: this.props.response.items[i].snippet.thumbnails.default.url,
+                            thumbnail: this.props.response.items[i].snippet.thumbnails.high.url,
                             id: this.props.response.items[i].id.videoId,
                             published: date[0],
                             idx: idx

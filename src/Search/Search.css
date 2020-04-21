@@ -11,9 +11,9 @@ li{
 }
 .Search textarea{
     background-color:rgb(0,0,0);   
-    padding-left: 10px;
+    padding-left: 10px; 
     padding-top: 7px;
-    margin-top: 7px;
+    margin-top: 7px; 
     margin-left: 5px;
     font-size: 4vw;
     color: silver;
@@ -33,6 +33,7 @@ li{
 #Go_Btn{
     width: 40x;
     height: 40px;
+    z-index: 1000;
 }
 .Search_Form li{
     margin-top: -5px;
@@ -77,14 +78,20 @@ li{
     #Go_Btn{
         position: absolute;
         top: -1vh;
-        left: 50vw;
+        left: 34vw;
         height: 70px;
     }
-    .Search{
-        width: 50vw;
+
+    .Search_Form{
+
+        margin-left: 3vw;
     }
     .Search textarea{
+        left: 5vw;
         font-size: 1.5vw;
+    }
+    .Search textarea{
+        width: 30vw;
     }
 }
 

@@ -18,9 +18,12 @@
 
 @media screen and (min-width: 1025px){
     #bars {
-        top: 21vh;
+        top: 95vh;
+        left: -3.5vw;
     }
-    
+    .bar{
+        background: rgb(90,56,56);
+    }
 }
 
 @keyframes sound {
