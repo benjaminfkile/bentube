@@ -42,7 +42,7 @@ class MediaPlayer extends Component {
     }
 
     playTrack = (args) => {
-        this.setState({ pause: true })
+        this.setState({ nowPlaying: null })
         var audio = document.getElementById("audio");
         if (audio) {
             audio.pause()
@@ -74,7 +74,11 @@ class MediaPlayer extends Component {
     pause = () => {
         var audio = document.getElementById("audio");
         audio.pause()
-        this.setState({ pause: false })
+        this.setState(
+            {
+                nowPlaying: null,
+                pause: false
+            })
     }
 
     next = (args) => {
@@ -174,7 +178,7 @@ class MediaPlayer extends Component {
                 {this.state.queu && <div className="Controls">
                     <section>
                         <img src={this.state.queu[this.state.idx].thumbnail} alt="oops" height="85" width="115"></img>
-                        <h1 dangerouslySetInnerHTML={{__html: this.state.queu[this.state.idx].title}}></h1>
+                        <h1 dangerouslySetInnerHTML={{ __html: this.state.queu[this.state.idx].title }}></h1>
                     </section>
                     <div className="Buttons">
                         <img id="Prev_Btn" src="./res/prev.png" alt="=&lt;&lt;" onClick={() => this.previous(this.state.queu[this.state.idx])}></img>
@@ -198,7 +202,7 @@ class MediaPlayer extends Component {
                                 </div>
                                 <div className="Info">
                                     {/* <li>{videos.title}</li> */}
-                                    <li dangerouslySetInnerHTML={{__html: videos.title}}></li>
+                                    <li dangerouslySetInnerHTML={{ __html: videos.title }}></li>
                                     <p>{videos.published}</p>
                                 </div>
                             </div>)}

@@ -1,69 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Udio
 
-## Available Scripts
+Udio connects to the hackify API and converts YouTube videos to .mp3 format.  Udio has a user interface to discover and play YouTube videos as audio-only
 
-In the project directory, you can run:
+##Install Client
 
-### `npm start`
+git clone https://github.com/benjaminfkile/hackify
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+cd to hackify
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+npm install
 
-### `npm test`
+npm start
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+##Screenshots
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![1](https://user-images.githubusercontent.com/34235864/80178051-95b06c80-85ba-11ea-83ae-14ff25671e4a.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![2](https://user-images.githubusercontent.com/34235864/80178067-a1039800-85ba-11ea-8f80-60c45968ef41.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![3](https://user-images.githubusercontent.com/34235864/80178094-afea4a80-85ba-11ea-9ba8-b01a30b1aad3.png)
 
-### `npm run eject`
+![4](https://user-images.githubusercontent.com/34235864/80178111-bbd60c80-85ba-11ea-8c39-b85586eeeae4.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Created with:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+icons8-react-native-96
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Node.js
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# hackify
+icons8-nodejs-96
