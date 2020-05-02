@@ -2,7 +2,7 @@
 
 Udio connects to the hackify API and converts YouTube videos to .mp3 format.  Udio has a user interface to discover and play YouTube videos as audio-only
 
-## Install Client
+## Install
 
 git clone https://github.com/benjaminfkile/hackify
 
