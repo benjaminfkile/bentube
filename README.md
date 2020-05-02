@@ -1,12 +1,12 @@
-## Udio
+## Tubio
 
-Udio connects to the hackify API and converts YouTube videos to .mp3 format.  Udio has a user interface to discover and play YouTube videos as audio-only
+Tubio connects to the Tubio API and converts YouTube videos to .mp3 format.  Tubio has a user interface to discover and play YouTube videos as audio-only
 
 ## Install
 
-git clone https://github.com/benjaminfkile/hackify
+git clone https://github.com/benjaminfkile/tubio
 
-cd to hackify
+cd to tubio
 
 npm install
 
