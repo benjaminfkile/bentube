@@ -24,6 +24,7 @@ class Search extends Component {
     }
 
     handleSubmit = () => {
+        this.setState({response: null})
         let value = document.getElementById("text").value
         if (value !== "Search for Music, News, Lyrics...") {
             this.getVideos(value, this.state.maxResults)
