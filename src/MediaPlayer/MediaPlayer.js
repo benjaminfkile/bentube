@@ -42,7 +42,6 @@ class MediaPlayer extends Component {
     }
 
     playTrack = (args) => {
-        this.setState({ nowPlaying: null })
         var audio = document.getElementById("audio");
         if (audio) {
             audio.pause()
@@ -76,7 +75,6 @@ class MediaPlayer extends Component {
         audio.pause()
         this.setState(
             {
-                nowPlaying: null,
                 pause: false
             })
     }
