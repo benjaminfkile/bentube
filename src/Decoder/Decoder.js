@@ -23,6 +23,7 @@ class Decoder extends Component {
   durationCallback = () => {
     this.props.duration(this._duration)
   }
+  
   progressCallback = () =>{
     this.props.progress(this._progress)
   }

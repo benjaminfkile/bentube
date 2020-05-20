@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Decoder from '../Decoder/Decoder';
-import Bars from './Bars'
+// import Bars from './Bars'
 import '../MediaPlayer/MediaPlayer.css'
 
 class MediaPlayer extends Component {
@@ -25,102 +25,96 @@ class MediaPlayer extends Component {
     }
 
     decoderNext = () => {
-        this.next(this.state.queu[this.state.idx])
+        this.next()
     }
 
     decoderDuration = (duration) => {
         if (duration) {
             this.setState({ duration: new Date(duration * 1000).toISOString().substr(12, 7) })
-
-
         }
     }
+
     decoderProgress = (progress) => {
+
         if (progress) {
             this.setState({ progress: new Date(progress * 1000).toISOString().substr(12, 7) })
         }
     }
 
     playTrack = (args) => {
-        var audio = document.getElementById("audio");
-        if (audio) {
-            audio.pause()
-        }
-        if (args) {
-            this.setState(
-                {
-                    nowPlaying: args.id,
-                    idx: args.idx,
-                    pause: true
-                })
-        } else {
 
-            if (this.state.nowPlaying) {
-                this.setState({ pause: true })
-                audio.play()
-            }
-            else {
-                this.setState(
-                    {
-                        idx: 0,
-                        nowPlaying: this.state.queu[0].id,
-                        pause: true
-                    })
-            }
+        if (args) {
+            this.setState({ nowPlaying: args.id, pause: true })
+        }
+        if (!args) {
+            this.setState({ nowPlaying: this.state.queu[this.state.idx].id, pause: true })
         }
     }
 
     pause = () => {
-        var audio = document.getElementById("audio");
-        audio.pause()
-        this.setState(
-            {
-                pause: false
-            })
+        this.setState({ nowPlaying: '', pause: false })
     }
 
-    next = (args) => {
-        this.setState({ pause: true })
-        if (!this.state.shuffle) {
-            if (args.idx < this.state.queu.length - 1) {
-                this.setState(
-                    {
-                        idx: this.state.idx + 1,
-                        nowPlaying: this.state.queu[this.state.idx + 1].id
-                    })
-            } else {
-                this.setState(
-                    {
-                        idx: 0,
-                        nowPlaying: this.state.queu[0].id
+    next = async () => {
 
-                    })
+        if (!this.state.shuffle) {
+            if (this.state.idx < this.state.queu.length - 1) {
+                let promise = new Promise((resolve, reject) => {
+                    this.setState({ idx: this.state.idx + 1 })
+                    setTimeout(() => resolve(this.state.idx), 1000)
+                });
+
+                let result = await promise;
+                this.playTrack()
+                console.log(result)
+
+            }
+            else {
+                let promise = new Promise((resolve, reject) => {
+                    this.setState({ idx: 0 })
+                    setTimeout(() => resolve(this.state.idx), 1000)
+                });
+
+                let result = await promise;
+                this.playTrack()
+                console.log(result)
+
             }
         } else {
             let random = Math.floor(Math.random() * this.state.queu.length)
-            this.setState(
-                {
-                    idx: random,
-                    nowPlaying: this.state.queu[random].id
-                })
+            let promise = new Promise((resolve, reject) => {
+                this.setState({ idx: random })
+                setTimeout(() => resolve(this.state.idx), 1000)
+            });
+
+            let result = await promise;
+            this.playTrack()
+            console.log(result)
         }
     }
 
-    previous = (args) => {
-        this.setState({ pause: true })
-        if (args.idx > 0) {
-            this.setState(
-                {
-                    idx: this.state.idx - 1,
-                    nowPlaying: this.state.queu[this.state.idx - 1].id
+    previous = async () => {
 
-                })
-        } else {
-            this.setState(
-                {
-                    idx: this.state.queu.length - 1,
-                    nowPlaying: this.state.queu[this.state.queu.length - 1].id
-                })
+        if (this.state.idx > 0) {
+            let promise = new Promise((resolve, reject) => {
+                this.setState({ idx: this.state.idx - 1 })
+                setTimeout(() => resolve(this.state.idx), 1000)
+            });
+
+            let result = await promise;
+            this.playTrack()
+            console.log(result)
+
+        }
+        else {
+            let promise = new Promise((resolve, reject) => {
+                this.setState({ idx: this.state.queu.length - 1 })
+                setTimeout(() => resolve(this.state.idx), 1000)
+            });
+
+            let result = await promise;
+            this.playTrack()
+            console.log(result)
         }
     }
 
@@ -189,7 +183,7 @@ class MediaPlayer extends Component {
                         {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                         {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                     </div>
-                    {this.state.pause && <Bars />}
+                    {/* {this.state.pause && <Bars />} */}
                 </div>}
                 {this.state.queu && <div className="List">
                     <ul>
@@ -215,7 +209,6 @@ class MediaPlayer extends Component {
             </div>
         )
     }
-
 }
 
 export default MediaPlayer
