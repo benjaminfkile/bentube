@@ -25,7 +25,7 @@ class MediaPlayer extends Component {
     }
 
     decoderNext = () => {
-        this.next()
+        this.next(this.state.queu[this.state.idx])
     }
 
     decoderDuration = (duration) => {
@@ -43,80 +43,93 @@ class MediaPlayer extends Component {
 
     playTrack = (args) => {
 
+        var audio = document.getElementById("audio");
+        if (audio) {
+            audio.pause()
+        }
         if (args) {
-            this.setState({ nowPlaying: args.id, pause: true })
-        }
-        if (!args) {
-            this.setState({ nowPlaying: this.state.queu[this.state.idx].id, pause: true })
-        }
-    }
+            this.setState(
+                {
+                    nowPlaying: args.id,
+                    idx: args.idx,
+                    pause: true
+                })
+        } else {
 
-    pause = () => {
-        this.setState({ nowPlaying: '', pause: false })
-    }
-
-    next = async () => {
-
-        if (!this.state.shuffle) {
-            if (this.state.idx < this.state.queu.length - 1) {
-                let promise = new Promise((resolve, reject) => {
-                    this.setState({ idx: this.state.idx + 1 })
-                    setTimeout(() => resolve(this.state.idx), 1000)
-                });
-
-                let result = await promise;
-                this.playTrack()
-                console.log(result)
-
+            if (this.state.nowPlaying) {
+                this.setState({ pause: true })
+                audio.play()
             }
             else {
-                let promise = new Promise((resolve, reject) => {
-                    this.setState({ idx: 0 })
-                    setTimeout(() => resolve(this.state.idx), 1000)
-                });
-
-                let result = await promise;
-                this.playTrack()
-                console.log(result)
-
+                this.setState(
+                    {
+                        idx: 0,
+                        nowPlaying: this.state.queu[0].id,
+                        pause: true
+                    })
             }
+        }
+    }
+
+        pause = () => {
+            var audio = document.getElementById("audio");
+            audio.pause()
+            this.setState(
+                {
+                    pause: false
+                })
+        }
+
+        next = (args) => {
+
+            this.setState({ pause: true })
+
+            if (!this.state.shuffle) {
+                if (args.idx < this.state.queu.length - 1) {
+                    this.setState(
+                        {
+                            idx: this.state.idx + 1,
+                            nowPlaying: this.state.queu[this.state.idx + 1].id
+                        })
+                } else {
+                    this.setState(
+                        {
+                            idx: 0,
+                            nowPlaying: this.state.queu[0].id
+
+                        })
+
+                }
+            } else {
+                let random = Math.floor(Math.random() * this.state.queu.length)
+
+                this.setState(
+                    {
+                        idx: random,
+                        nowPlaying: this.state.queu[random].id
+                    })
+            }
+        }
+    
+
+    previous = (args) => {
+        this.setState({ pause: true })
+        if (args.idx > 0) {
+            this.setState(
+                {
+                    idx: this.state.idx - 1,
+                    nowPlaying: this.state.queu[this.state.idx - 1].id
+
+                                    })
         } else {
-            let random = Math.floor(Math.random() * this.state.queu.length)
-            let promise = new Promise((resolve, reject) => {
-                this.setState({ idx: random })
-                setTimeout(() => resolve(this.state.idx), 1000)
-            });
-
-            let result = await promise;
-            this.playTrack()
-            console.log(result)
-        }
+            this.setState(
+                {
+                    idx: this.state.queu.length - 1,
+                    nowPlaying: this.state.queu[this.state.queu.length - 1].id
+                })
+                        }
     }
 
-    previous = async () => {
-
-        if (this.state.idx > 0) {
-            let promise = new Promise((resolve, reject) => {
-                this.setState({ idx: this.state.idx - 1 })
-                setTimeout(() => resolve(this.state.idx), 1000)
-            });
-
-            let result = await promise;
-            this.playTrack()
-            console.log(result)
-
-        }
-        else {
-            let promise = new Promise((resolve, reject) => {
-                this.setState({ idx: this.state.queu.length - 1 })
-                setTimeout(() => resolve(this.state.idx), 1000)
-            });
-
-            let result = await promise;
-            this.playTrack()
-            console.log(result)
-        }
-    }
 
     shuffle = () => {
         if (!this.state.shuffle) {
