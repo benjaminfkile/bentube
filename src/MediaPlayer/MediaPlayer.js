@@ -5,6 +5,8 @@ import '../MediaPlayer/MediaPlayer.css'
 
 class MediaPlayer extends Component {
 
+    _interval
+
     constructor() {
         super();
         this.state = {
@@ -14,6 +16,7 @@ class MediaPlayer extends Component {
             idx: 0,
             interval1: 1000,
             pause: false,
+            next: false,
             duration: null,
             progress: null,
             shuffle: false,
@@ -22,7 +25,12 @@ class MediaPlayer extends Component {
 
     componentDidMount() {
         this.listen4DB()
+        // this._interval = setInterval(this.listenForAudio, 1000)
     }
+
+    componentWillUnmount(){
+        clearInterval(this._interval)
+      }
 
     decoderNext = () => {
         this.next(this.state.queu[this.state.idx])
@@ -35,101 +43,52 @@ class MediaPlayer extends Component {
     }
 
     decoderProgress = (progress) => {
-
         if (progress) {
-            this.setState({ progress: new Date(progress * 1000).toISOString().substr(12, 7) })
+            this.setState({ progress: new Date(progress * 1000).toISOString().substr(12, 7), next: true })
         }
     }
 
     playTrack = (args) => {
 
-        var audio = document.getElementById("audio");
-        if (audio) {
-            audio.pause()
-        }
-        if (args) {
-            this.setState(
-                {
-                    nowPlaying: args.id,
-                    idx: args.idx,
-                    pause: true
-                })
-        } else {
+        this.setState({ nowPlaying: null })
 
-            if (this.state.nowPlaying) {
-                this.setState({ pause: true })
-                audio.play()
-            }
-            else {
-                this.setState(
-                    {
-                        idx: 0,
-                        nowPlaying: this.state.queu[0].id,
-                        pause: true
-                    })
-            }
+        if (args) {
+            this.setState({ nowPlaying: args.id, idx: args.idx, pause: true })
+
+        } else {
+            this.playTrack(this.state.queu[0])
         }
     }
 
-        pause = () => {
-            var audio = document.getElementById("audio");
-            audio.pause()
-            this.setState(
-                {
-                    pause: false
-                })
-        }
+    stop = () => {
+        this.setState({ pause: false, nowPlaying: null })
+    }
 
-        next = (args) => {
+    next = (args) => {
 
-            this.setState({ pause: true })
+        this.setState({ next: false, pause: true })
 
-            if (!this.state.shuffle) {
-                if (args.idx < this.state.queu.length - 1) {
-                    this.setState(
-                        {
-                            idx: this.state.idx + 1,
-                            nowPlaying: this.state.queu[this.state.idx + 1].id
-                        })
-                } else {
-                    this.setState(
-                        {
-                            idx: 0,
-                            nowPlaying: this.state.queu[0].id
-
-                        })
-
-                }
+        if (!this.state.shuffle) {
+            if (args.idx < this.state.queu.length - 1) {
+                this.setState({ idx: this.state.idx + 1, nowPlaying: this.state.queu[this.state.idx + 1].id })
             } else {
-                let random = Math.floor(Math.random() * this.state.queu.length)
-
-                this.setState(
-                    {
-                        idx: random,
-                        nowPlaying: this.state.queu[random].id
-                    })
+                this.setState({ idx: 0, nowPlaying: this.state.queu[0].id })
             }
+        } else {
+            let random = Math.floor(Math.random() * this.state.queu.length)
+
+            this.setState({ idx: random, nowPlaying: this.state.queu[random].id })
         }
-    
+    }
 
     previous = (args) => {
         this.setState({ pause: true })
         if (args.idx > 0) {
-            this.setState(
-                {
-                    idx: this.state.idx - 1,
-                    nowPlaying: this.state.queu[this.state.idx - 1].id
-
-                                    })
+            this.setState({ idx: this.state.idx - 1, nowPlaying: this.state.queu[this.state.idx - 1].id })
         } else {
-            this.setState(
-                {
-                    idx: this.state.queu.length - 1,
-                    nowPlaying: this.state.queu[this.state.queu.length - 1].id
-                })
-                        }
+            this.setState({ idx: this.state.queu.length - 1, nowPlaying: this.state.queu[this.state.queu.length - 1].id })
+        }
     }
-
 
     shuffle = () => {
         if (!this.state.shuffle) {
@@ -139,6 +98,14 @@ class MediaPlayer extends Component {
             this.setState({ shuffle: false })
         }
     }
+
+    // listenForAudio = () =>{
+    //     var audio = document.getElementById("audio")
+    //     if(audio.src !== 'http://localhost:8000/downloadmp3?url=null'){
+    //         this.setState({pause: true, next: true})
+    //     }
+    
+    //   }
 
     listen4DB = () => {
         if (this.props.response) {
@@ -189,8 +156,8 @@ class MediaPlayer extends Component {
                         <img id="Prev_Btn" src="./res/prev.png" alt="=&lt;&lt;" onClick={() => this.previous(this.state.queu[this.state.idx])}></img>
                         {!this.state.pause &&
                             <img id="Play_Btn" src="./res/play.png" alt="&gt;" onClick={() => this.playTrack()}></img>}
-                        {this.state.pause &&
-                            <img id="Pause_Btn" src="./res/pause.png" alt="||" onClick={() => this.pause()}></img>}
+                        {this.state.pause && <img id="Pause_Btn" src="./res/pause.png" alt="||" onClick={() => this.stop()}></img>}
+                        {/* {this.state.next && <img id="Next_Btn" src="./res/next.png" alt="&gt;&gt;" onClick={() => this.next(this.state.queu[this.state.idx])}></img>} */}
                         <img id="Next_Btn" src="./res/next.png" alt="&gt;&gt;" onClick={() => this.next(this.state.queu[this.state.idx])}></img>
                         {this.state.progress && this.state.duration && <p>{this.state.progress}/{this.state.duration}</p>}
                         {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
@@ -206,7 +173,6 @@ class MediaPlayer extends Component {
                                     <img src={videos.thumbnail} alt="Smiley face" height="90" width="120"></img>
                                 </div>
                                 <div className="Info">
-                                    {/* <li>{videos.title}</li> */}
                                     <li dangerouslySetInnerHTML={{ __html: videos.title }}></li>
                                     <p>{videos.published}</p>
                                 </div>
