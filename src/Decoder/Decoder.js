@@ -5,14 +5,14 @@ class Decoder extends Component {
   _duration = 0;
   _progress = 0;
   _interval
-  // _serverURL = 'http://localhost:8000/downloadmp3?url='
-  _serverURL = 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url='
+  _serverURL = 'http://localhost:8000/downloadmp3?url='
+  // _serverURL = 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url='
 
   componentDidMount() {
     this._interval = setInterval(this.listenForAudio, 1000)
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this._interval)
   }
 
@@ -23,19 +23,19 @@ class Decoder extends Component {
   durationCallback = () => {
     this.props.duration(this._duration)
   }
-  
-  progressCallback = () =>{
+
+  progressCallback = () => {
     this.props.progress(this._progress)
   }
 
-  listenForAudio = () =>{
+  listenForAudio = () => {
     var audio = document.getElementById("audio")
-    if(audio){
+    if (audio) {
       this._duration = audio.duration
       this._progress = audio.currentTime
       this.durationCallback()
       this.progressCallback()
-    }else{
+    } else {
       this._duration = 0
       this._progress = 0
     }
@@ -45,8 +45,7 @@ class Decoder extends Component {
 
     return (
       <div className="Media_Player">
-        {typeof this.props.videoId !=='undefined' && <audio id="audio" src={this._serverURL + this.props.videoId} onEnded={this.nextCallback} controls autoPlay />}
-      </div>
+        {typeof this.props.videoId && <audio id="audio" src={this.props.videoId ? this._serverURL + this.props.videoId : null} onEnded={this.nextCallback} controls autoPlay />}      </div>
     );
   }
 }
