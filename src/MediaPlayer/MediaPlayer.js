@@ -25,7 +25,7 @@ class MediaPlayer extends Component {
 
     componentDidMount() {
         this.listen4DB()
-        // this._interval = setInterval(this.listenForAudio, 1000)
+        this._interval = setInterval(this.listenForAudio, 1000)
     }
 
     componentWillUnmount(){
@@ -99,13 +99,14 @@ class MediaPlayer extends Component {
         }
     }
 
-    // listenForAudio = () =>{
-    //     var audio = document.getElementById("audio")
-    //     if(audio.src !== 'http://localhost:8000/downloadmp3?url=null'){
-    //         this.setState({pause: true, next: true})
-    //     }
+    listenForAudio = () =>{
+        var audio = document.getElementById("audio")
+        // if(audio.src !== 'http://localhost:8000/downloadmp3?url=null'){
+            if(audio.src !== 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url=null'){
+            this.setState({pause: true, next: true})
+        }
     
-    //   }
+      }
 
     listen4DB = () => {
         if (this.props.response) {
