@@ -42,10 +42,10 @@ class Decoder extends Component {
 
   }
   render() {
-
+    
     return (
       <div className="Media_Player">
-        {typeof this.props.videoId !=='undefined' && <audio id="audio" src={this._serverURL + this.props.videoId} onEnded={this.nextCallback} controls autoPlay />}
+        {this.props.videoId && <audio id="audio" src={this._serverURL + this.props.videoId} onEnded={this.nextCallback} controls autoPlay />}
       </div>
     );
   }
