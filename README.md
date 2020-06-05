@@ -1,10 +1,10 @@
-## Tubio
+## benTube
 
-Tubio connects to the Tubio API and converts YouTube videos to .mp3 format.  Tubio has a user interface to discover and play YouTube videos as audio-only
+benTube connects to the Tubio API and converts YouTube videos to .mp3 format.  benTube has a user interface to discover and play YouTube videos as audio-only
 
 ## Install
 
-git clone https://github.com/benjaminfkile/tubio
+git clone https://github.com/benjaminfkile/benTube
 
 cd to tubio
 
