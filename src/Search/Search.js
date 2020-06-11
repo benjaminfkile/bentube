@@ -7,7 +7,7 @@ class Search extends Component {
     constructor() {
         super();
         this.state = {
-            apiKey: 'AIzaSyBXjWJMtD6iouOkSK8M9u2k8G2epWeJA5Y',
+            apiKey: '',
             searchURL: 'https://www.googleapis.com/youtube/v3/search',
             baseURL: 'https://www.youtube.com/watch?v=',
             response: null,
