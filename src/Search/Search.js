@@ -13,7 +13,7 @@ class Search extends Component {
             baseURL: 'https://www.youtube.com/watch?v=',
             response: null,
             value: '',
-            maxResults: 50,
+            maxResults: 100,
             requests: 0,
             error: false
         }
