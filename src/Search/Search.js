@@ -13,14 +13,14 @@ class Search extends Component {
             baseURL: 'https://www.youtube.com/watch?v=',
             response: null,
             value: '',
-            maxResults: 100,
+            maxResults: 50,
             requests: 0,
             error: false
         }
         this.keyPress = this.keyPress.bind(this);
     }
     componentDidMount() {
-        this.getVideos('new music', 100)
+        this.getVideos('new music', 50)
         // this.setState({ response: DummyStore })
     }
 
