@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Decoder from '../Decoder/Decoder';
-// import Bars from './Bars'
+import Bars from './Bars'
 import '../MediaPlayer/MediaPlayer.css'
 
 class MediaPlayer extends Component {
@@ -163,7 +163,7 @@ class MediaPlayer extends Component {
                         {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                         {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                     </div>
-                    {/* {this.state.pause && <Bars />} */}
+                    {this.state.pause && <Bars />}
                 </div>}
                 {this.state.queu && <div className="List">
                     <ul>
