@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MediaPlayer from '../MediaPlayer/MediaPlayer'
 import '../Search/Search.css'
-// import DummyStore from './DummyStore'
+import DummyStore from './DummyStore'
 
 class Search extends Component {
     constructor() {

@@ -25,12 +25,11 @@ class MediaPlayer extends Component {
 
     componentDidMount() {
         this.listen4DB()
-        // this._interval = setInterval(this.listenForAudio, 1000)
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this._interval)
-      }
+    }
 
     decoderNext = () => {
         this.next(this.state.queu[this.state.idx])
@@ -61,12 +60,12 @@ class MediaPlayer extends Component {
     }
 
     stop = () => {
-        this.setState({ pause: false, nowPlaying: null })
+        this.setState({ pause: false, nowPlaying: null, progress: false })
     }
 
     next = (args) => {
 
-        this.setState({ next: false, pause: true })
+        this.setState({ next: false, pause: true, progress: false })
 
         if (!this.state.shuffle) {
             if (args.idx < this.state.queu.length - 1) {
@@ -82,7 +81,7 @@ class MediaPlayer extends Component {
     }
 
     previous = (args) => {
-        this.setState({ pause: true })
+        this.setState({ pause: true, progress: false })
         if (args.idx > 0) {
             this.setState({ idx: this.state.idx - 1, nowPlaying: this.state.queu[this.state.idx - 1].id })
         } else {
@@ -98,14 +97,6 @@ class MediaPlayer extends Component {
             this.setState({ shuffle: false })
         }
     }
-
-    // listenForAudio = () =>{
-    //     var audio = document.getElementById("audio")
-    //     if(audio.src !== 'http://localhost:8000/downloadmp3?url=null'){
-    //         this.setState({pause: true, next: true})
-    //     }
-    
-    //   }
 
     listen4DB = () => {
         if (this.props.response) {
@@ -163,7 +154,7 @@ class MediaPlayer extends Component {
                         {!this.state.shuffle && <img id="Shuffle_Btn" src="./res/shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                         {this.state.shuffle && <img id="No_Shuffle_Btn" src="./res/no-shuffle.png" alt="shuflle" onClick={() => this.shuffle()}></img>}
                     </div>
-                    {this.state.pause && <Bars />}
+                    {this.state.progress && <Bars />}
                 </div>}
                 {this.state.queu && <div className="List">
                     <ul>
@@ -173,7 +164,8 @@ class MediaPlayer extends Component {
                                     <img src={videos.thumbnail} alt="Smiley face" height="90" width="120"></img>
                                 </div>
                                 <div className="Info">
-                                    <li dangerouslySetInnerHTML={{ __html: videos.title }}></li>
+                                    <li dangerouslySetInnerHTML={{ __html: videos.title }}>
+                                    </li>
                                     <p>{videos.published}</p>
                                 </div>
                             </div>)}

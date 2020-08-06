@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 
 class Decoder extends Component {
 
-  _duration = 0;
-  _progress = 0;
-  _interval
+  duration = 0;
+  progress = 0;
+  interval
   // _serverURL = 'http://localhost:8000/downloadmp3?url='
   _serverURL = 'https://frozen-thicket-30265.herokuapp.com/downloadmp3?url='
 
   componentDidMount() {
-    this._interval = setInterval(this.listenForAudio, 1000)
+    this.interval = setInterval(this.listenForAudio, 1000)
   }
 
   componentWillUnmount(){
-    clearInterval(this._interval)
+    clearInterval(this.interval)
   }
 
   nextCallback = () => {
@@ -21,23 +21,23 @@ class Decoder extends Component {
   }
 
   durationCallback = () => {
-    this.props.duration(this._duration)
+    this.props.duration(this.duration)
   }
   
   progressCallback = () =>{
-    this.props.progress(this._progress)
+    this.props.progress(this.progress)
   }
 
   listenForAudio = () =>{
     var audio = document.getElementById("audio")
     if(audio){
-      this._duration = audio.duration
-      this._progress = audio.currentTime
+      this.duration = audio.duration
+      this.progress = audio.currentTime
       this.durationCallback()
       this.progressCallback()
     }else{
-      this._duration = 0
-      this._progress = 0
+      this.duration = 0
+      this.progress = 0
     }
 
   }
