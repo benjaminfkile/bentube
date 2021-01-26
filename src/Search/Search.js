@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import MediaPlayer from '../MediaPlayer/MediaPlayer'
 import '../Search/Search.css'
-import DummyStore from './DummyStore'
+// import DummyStore from './DummyStore'
 
 class Search extends Component {
     constructor() {
         super();
         this.state = {
             //this key is restricted due to a scumbag that kept stealing it so you will have to come up with your own to get it working
-            apiKey: 'AIzaSyApPh6UB8gS6Y8NQkYDYs5BeHDpmDmFvCI',
+            apiKey: 'AIzaSyDCWWJLRXoNkdEhcpgJbmnkoWI-8tOgl10',
             searchURL: 'https://www.googleapis.com/youtube/v3/search',
             baseURL: 'https://www.youtube.com/watch?v=',
             response: null,
@@ -20,7 +20,7 @@ class Search extends Component {
         this.keyPress = this.keyPress.bind(this);
     }
     componentDidMount() {
-        this.getVideos('new music lyrics', 50)
+        this.getVideos('new songs lyrics', 50)
         // this.setState({ response: DummyStore })
     }
 
