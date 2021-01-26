@@ -1,34 +1,70 @@
-## benTube
+# Getting Started with Create React App
 
-benTube connects to the Tubio API and converts YouTube videos to .mp3 format.  benTube has a user interface to discover and play YouTube videos as audio-only
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Install
+## Available Scripts
 
-git clone https://github.com/benjaminfkile/benTube
+In the project directory, you can run:
 
-cd to tubio
+### `npm start`
 
-npm install
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-npm start
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
+### `npm test`
 
-## Screenshots
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-![1](https://user-images.githubusercontent.com/34235864/80178051-95b06c80-85ba-11ea-83ae-14ff25671e4a.png)
+### `npm run build`
 
-![2](https://user-images.githubusercontent.com/34235864/80178067-a1039800-85ba-11ea-8f80-60c45968ef41.png)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-![3](https://user-images.githubusercontent.com/34235864/80178094-afea4a80-85ba-11ea-9ba8-b01a30b1aad3.png)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-![4](https://user-images.githubusercontent.com/34235864/80178111-bbd60c80-85ba-11ea-8c39-b85586eeeae4.png)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Created with:
+### `npm run eject`
 
-React.js
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-![icons8-react-native-96](https://user-images.githubusercontent.com/34235864/72698953-9e992a00-3b03-11ea-8bef-f2d1a0307c2a.png)
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Node.js
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-![icons8-nodejs-96](https://user-images.githubusercontent.com/34235864/72699016-f6d02c00-3b03-11ea-9de4-e1e325fde504.png)
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
